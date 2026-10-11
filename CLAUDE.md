@@ -77,4 +77,5 @@ Compare 4 methods: (1) rule-based keyword baseline, (2) zero-shot LLM, (3) few-s
 
 ## Current status
 - [x] Stage 0: `CLAUDE.md` and `.gitignore` created. No application code yet.
-- [ ] Stage 1: backend scaffold (not started; waiting for the user's go-ahead)
+- [x] Stage 1: backend scaffold done (folders, config, schemas, pipeline stubs, route stubs returning 501, tests passing). No LLM, DB or frontend code yet.
+- [ ] Stage 2: detector (next; waiting for the user's go-ahead)
