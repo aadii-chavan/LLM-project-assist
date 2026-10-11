@@ -78,4 +78,5 @@ Compare 4 methods: (1) rule-based keyword baseline, (2) zero-shot LLM, (3) few-s
 ## Current status
 - [x] Stage 0: `CLAUDE.md` and `.gitignore` created. No application code yet.
 - [x] Stage 1: backend scaffold done (folders, config, schemas, pipeline stubs, route stubs returning 501, tests passing). No LLM, DB or frontend code yet.
-- [ ] Stage 2: detector (next; waiting for the user's go-ahead)
+- [x] Stage 2: preprocessor (`split_requirements`, `assign_ids`) and detector (tool-use structured output, span check, one retry, JSONL logging to `backend/logs/`), zero-shot detect prompt, sample set + `eval/try_detect.py`. Tests use a mocked client. Live run of `try_detect.py` pending the user's `.env`.
+- [ ] Stage 3: corrector (next; waiting for the user's go-ahead)

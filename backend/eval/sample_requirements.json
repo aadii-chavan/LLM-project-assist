@@ -1,0 +1,62 @@
+[
+  {
+    "text": "The system shall lock a user account for 15 minutes after 5 consecutive failed login attempts.",
+    "expected_ambiguous": false,
+    "expected_types": []
+  },
+  {
+    "text": "The system shall return search results within 2 seconds for 95% of queries when 500 users are connected.",
+    "expected_ambiguous": false,
+    "expected_types": []
+  },
+  {
+    "text": "The system shall encrypt all stored passwords using bcrypt with a cost factor of at least 12.",
+    "expected_ambiguous": false,
+    "expected_types": []
+  },
+  {
+    "text": "The administrator shall be able to export the monthly sales report as a PDF file.",
+    "expected_ambiguous": false,
+    "expected_types": []
+  },
+  {
+    "text": "The system shall store the customer record at the bank.",
+    "expected_ambiguous": true,
+    "expected_types": ["lexical"]
+  },
+  {
+    "text": "The system shall send the invoice to the customer and the accountant or the manager.",
+    "expected_ambiguous": true,
+    "expected_types": ["syntactic"]
+  },
+  {
+    "text": "When the user submits the form, it shall be validated and saved by the system or the clerk.",
+    "expected_ambiguous": true,
+    "expected_types": ["syntactic"]
+  },
+  {
+    "text": "Reports shall be generated after the data is updated.",
+    "expected_ambiguous": true,
+    "expected_types": ["semantic"]
+  },
+  {
+    "text": "The application shall be fast and user-friendly.",
+    "expected_ambiguous": true,
+    "expected_types": ["vagueness"]
+  },
+  {
+    "text": "The system shall be secure against unauthorized access.",
+    "expected_ambiguous": true,
+    "expected_types": ["vagueness"]
+  },
+  {
+    "text": "The system shall lock the account after several failed login attempts.",
+    "expected_ambiguous": true,
+    "expected_types": ["incompleteness"]
+  },
+  {
+    "text": "The system shall notify the user when the order status changes.",
+    "expected_ambiguous": true,
+    "expected_types": ["incompleteness"]
+  }
+]

@@ -24,6 +24,33 @@ def test_confidence_outside_range_is_rejected(confidence: float) -> None:
         make_detection(confidence)
 
 
+def test_ambiguous_requires_types() -> None:
+    """ambiguous=true with empty types is rejected."""
+    with pytest.raises(ValidationError):
+        DetectionResult(
+            ambiguous=True, types=[], spans=["fast"], explanation="x", confidence=0.5
+        )
+
+
+@pytest.mark.parametrize(
+    "types, spans", [(["vagueness"], []), ([], ["fast"])]
+)
+def test_clear_requires_empty_types_and_spans(types: list[str], spans: list[str]) -> None:
+    """ambiguous=false with any types or spans is rejected."""
+    with pytest.raises(ValidationError):
+        DetectionResult(
+            ambiguous=False, types=types, spans=spans, explanation="x", confidence=0.5
+        )
+
+
+def test_clear_result_with_empty_lists_is_valid() -> None:
+    """ambiguous=false with empty types and spans is accepted."""
+    result = DetectionResult(
+        ambiguous=False, types=[], spans=[], explanation="Clear.", confidence=0.9
+    )
+    assert result.ambiguous is False
+
+
 @pytest.mark.parametrize("count", [0, 4])
 def test_clarifying_questions_count_is_validated(count: int) -> None:
     """clarifying_questions must have 1 to 3 items."""

@@ -2,7 +2,7 @@
 
 from enum import Enum
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 class AmbiguityType(str, Enum):
@@ -32,6 +32,15 @@ class DetectionResult(BaseModel):
     spans: list[str]
     explanation: str
     confidence: float = Field(ge=0, le=1)
+
+    @model_validator(mode="after")
+    def check_consistency(self) -> "DetectionResult":
+        """Ambiguous results need types; clear results must have no types or spans."""
+        if self.ambiguous and not self.types:
+            raise ValueError("types must not be empty when ambiguous is true")
+        if not self.ambiguous and (self.types or self.spans):
+            raise ValueError("types and spans must be empty when ambiguous is false")
+        return self
 
 
 class CorrectionResult(BaseModel):
